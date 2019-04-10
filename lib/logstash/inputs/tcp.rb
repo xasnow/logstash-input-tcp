@@ -182,6 +182,8 @@ class LogStash::Inputs::Tcp < LogStash::Inputs::Base
         event.set(PROXY_PORT_FIELD, proxy_port) unless event.get(PROXY_PORT_FIELD)
       end
       enqueue_decorated(event, client_ip_address, client_address, client_port, socket)
+	  # This line is not a test code, and some of the devices on the decode have log decoding exceptions. Only has input, and no output,it is over here.
+	  @logger.debug("event output after decode_buffer----", :event => "#{event}")
     end
   end
 
